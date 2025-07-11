@@ -4,8 +4,10 @@ import z, { treeifyError } from "zod";
 const _env = z.object({
   PORT: z
     .string()
-    .min(1, ".env is invalid: PORT not defined")
+    .min(1, ".env is invalid: PORT is not provided")
     .transform(Number),
+  API_KEY: z.string().min(1, ".env is invalid: API_KEY is not provided"),
+  API_URL: z.string().min(1, ".env is invalid: API_URL is not provided"),
 });
 
 function validateEnv() {
