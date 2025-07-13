@@ -1,9 +1,15 @@
-# Projeto de Previsão do Tempo com Redis
+# Weather Wrapper API using Redis for caching
 
-Este é um projeto simples que desenvolvi para aprender a utilizar o Redis como cache em aplicações Node.js. Ele faz requisições para uma API de previsão do tempo e armazena as respostas no Redis, melhorando a performance e reduzindo chamadas desnecessárias à API externa.
+This is a simple project that i build to learn use cache with **[Redis](https://redis.io/)**. He make requests for **[Visual Cross API](https://www.visualcrossing.com/weather-api)** and caching forecast on redis, getting better performance and reduce unnecessary request from external API (saving $)
 
-## Funcionalidades
+## Features
 
-- Consulta a previsão do tempo de uma cidade.
-- Utiliza o Redis para armazenar e recuperar previsões já consultadas.
-- Responde mais rápido quando a informação já está em cache.
+This projects just have one fuction: **Get Forecast**, which:
+
+- Consult specifc city forecast
+- Use Redis to store and recovery already used forecasts
+- Quickly response if forecast already stay in Redis cache
+
+## Conclusion
+
+In tests on my local machine, directly requests to external API took on **avarage 1500ms**, after store these same tests and use cache, the sames requests took **avarage 13ms**. Really, this is very important on a large scale.
